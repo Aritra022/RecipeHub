@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Recipe App — Upgraded</title>
+  <link rel="stylesheet" href="recipe.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">R</div>
+      <div>
+        <div class="title">Recipe App</div>
+        <div style="font-size:12px;color:var(--muted)">Modern, responsive & upgradeable</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <input id="search" class="search" placeholder="Search recipes..." aria-label="Search recipes">
+      <button id="addBtn" class="btn">Add Recipe</button>
+      <button id="refreshBtn" class="btn secondary">Refresh</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <div class="filters" id="filters"></div>
+      <div style="margin-left:auto;display:flex;gap:8px">
+        <div id="count" style="color:var(--muted);align-self:center">0 recipes</div>
+        <button id="toggleView" class="chip">Show all</button>
+      </div>
+    </div>
+
+    <section id="grid"></section>
+    <div id="empty" class="empty" style="display:none">No recipes found. Try another search or add a recipe.</div>
+  </main>
+
+  <footer>
+    Built for easy upgrades • Click "View" to see details • Your added recipes are stored locally
+  </footer>
+
+  <!-- View Recipe Modal -->
+  <div id="backdrop" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal" role="document">
+      <div class="header">
+        <strong id="modalTitle">Recipe</strong>
+        <button class="close" id="modalClose">✕</button>
+      </div>
+      <div class="body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- Add Recipe Modal -->
+  <div id="addRecipeBackdrop" class="modal-backdrop" role="dialog" aria-modal="true">
+    <div class="modal" role="document">
+      <div class="header">
+        <strong>Add a Recipe</strong>
+        <button class="close" id="closeAddRecipe">✕</button>
+      </div>
+      <div class="body">
+        <form id="addRecipeForm" class="grid">
+          <input type="text" id="recipeName" placeholder="Recipe Name" required>
+          <input type="text" id="recipeCuisine" placeholder="Cuisine" required>
+          <input type="url" id="recipeImage" placeholder="Image URL">
+          <textarea id="recipeIngredients" placeholder="Ingredients (comma separated)" required></textarea>
+          <textarea id="recipeInstructions" placeholder="Instructions (line by line)" required></textarea>
+          <button type="submit" class="btn" style="grid-column: span 2;">Save Recipe</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="recipe.js"></script>
+</body>
+</html>
